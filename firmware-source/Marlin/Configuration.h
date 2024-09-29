@@ -901,7 +901,7 @@
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
 // E steps example: steps per revolution s=200, microstepping m=16, effective gear diameter d=10.95: sm/(πd) = 93.02
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 800, 93.02 } // From Creality
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 800, 145 } // From Creality
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1155,7 +1155,7 @@
  *     O-- FRONT --+
  */
 // Note on Creality Ender-5 Plus: Z offset must be adjusted (M851) every time once the probe has been loosen/unmounted.
-#define NOZZLE_TO_PROBE_OFFSET { -46, -5, -1.8 } // From Creality
+#define NOZZLE_TO_PROBE_OFFSET { -44, -5  , -2.8 } // From Creality
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1165,10 +1165,10 @@
 #define XY_PROBE_FEEDRATE (133*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST (10*60) // From Creality was 15, I think 4 will be better.
+#define Z_PROBE_FEEDRATE_FAST (15*60) // From Creality was 15, I think 4 will be better.
 
 // Feedrate (mm/min) for the "accurate" probe of each point
-#define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 4) // From Creality
+#define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 3) // From Creality
 
 /**
  * Probe Activation Switch
@@ -1206,8 +1206,8 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-#define MULTIPLE_PROBING 5 // From Creality value 2
-#define EXTRA_PROBING  1 // From Creality
+#define MULTIPLE_PROBING 2 // From Creality value 2
+// #define EXTRA_PROBING  1 // From Creality
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
@@ -1515,7 +1515,7 @@
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
 //#define AUTO_BED_LEVELING_BILINEAR
-#define AUTO_BED_LEVELING_UBL // From Creality
+#define AUTO_BED_LEVELING_UBL // From Creality  
 //#define MESH_BED_LEVELING
 
 /**
@@ -1523,8 +1523,8 @@
  * these options to restore the prior leveling state or to always enable
  * leveling immediately after G28.
  */
-#define RESTORE_LEVELING_AFTER_G28 // From Creality
-//#define ENABLE_LEVELING_AFTER_G28
+// #define RESTORE_LEVELING_AFTER_G28 // From Creality
+#define ENABLE_LEVELING_AFTER_G28
 
 /**
  * Auto-leveling needs preheating
@@ -1614,7 +1614,7 @@
   //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
   // From Creality
   #define MESH_INSET       15       // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 7       // Don't use more than 15 points per axis, implementation limited.
+  #define GRID_MAX_POINTS_X 5       // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   //#define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points
@@ -1726,7 +1726,7 @@
 #endif
 
 // Homing speeds (mm/min)
-#define HOMING_FEEDRATE_MM_M { (90*60), (90*60), (15*60) } // From Creality
+#define HOMING_FEEDRATE_MM_M { (120*60), (120*60), (15*60) } // From Creality
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
@@ -2882,5 +2882,5 @@
 // Only power servos during movement, otherwise leave off to prevent jitter
 //#define DEACTIVATE_SERVOS_AFTER_MOVE
 
-// Edit servo angles with M281 and save to EEPROM with M500
+// Edit servo angles with M281 and save to EEPROM with M500  
 //#define EDITABLE_SERVO_ANGLES
